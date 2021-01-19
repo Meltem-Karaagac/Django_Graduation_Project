@@ -28,7 +28,7 @@ class Post(models.Model):
     )
     category = models.ForeignKey(
         Category, on_delete=models.PROTECT, default=1)
-    title = models.CharField(max_length=250)
+    title = models.CharField(max_length=230)
     excerpt = models.TextField(null=True)
     content = models.TextField()
     image = models.ImageField(
@@ -86,13 +86,3 @@ class PostView(models.Model):
 
     def __str__(self):
         return self.user.username
-
-
-
-
-
-
-
-
-
-
