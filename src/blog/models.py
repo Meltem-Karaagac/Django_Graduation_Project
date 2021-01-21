@@ -9,7 +9,7 @@ def user_directory_path(instance, filename):
 
 
 class Category(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=110)
 
     class Meta:
         verbose_name_plural = "Categories"
