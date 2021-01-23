@@ -1,5 +1,6 @@
 from django.db import models
-# from django.contrib.auth.models import User
+# from django.contrib.auth import get_user_model as user_model
+# User = user_model()
 from django.conf import settings
 
 
@@ -28,8 +29,8 @@ class Post(models.Model):
         ('published', 'Published'),
     )
     category = models.ForeignKey(
-        Category, on_delete=models.PROTECT, default=1)
-    title = models.CharField(max_length=230)
+        Category, on_delete=models.PROTECT, related_name="cats")
+    title = models.CharField(max_length=250)
     excerpt = models.TextField(null=True)
     content = models.TextField()
     image = models.ImageField(
