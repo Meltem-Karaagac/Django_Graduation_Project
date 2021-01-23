@@ -3,6 +3,12 @@ from rest_framework import serializers
 from .models import Post, Comment, Category
 
 
+class CommentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Comment
+        fields = ('content', 'post_id')
+
+
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
@@ -10,6 +16,9 @@ class CategorySerializer(serializers.ModelSerializer):
 
 
 class PostSerializer(serializers.ModelSerializer):
+    comments = CommentSerializer(many=True, read_only=True)
+    author = serializers.CharField(source="author.user_name", read_only=True)
+    category = serializers.CharField(source="category.name", read_only=True)
 
     class Meta:
         model = Post
@@ -22,8 +31,9 @@ class PostSerializer(serializers.ModelSerializer):
             'image',
             'category',
             'status',
+            'comment_count',
+            'view_count',
+            'like_count',
+            'published',
+            'comments',
         )
-class CommentSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Comment
-        fields = ('content', 'post_id')
