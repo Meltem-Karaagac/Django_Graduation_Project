@@ -14,7 +14,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='post',
             name='image',
-            field=models.ImageField(
-                default='django.jpg', upload_to=blog.models.user_directory_path, verbose_name='Image'),
+            field=models.ImageField(default='django.jpg', upload_to=blog.models.user_directory_path, verbose_name='Image'),
         ),
     ]

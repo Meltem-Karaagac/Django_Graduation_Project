@@ -18,43 +18,36 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='postview',
             name='user',
-            field=models.ForeignKey(
-                on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL),
         ),
         migrations.AddField(
             model_name='post',
             name='author',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE,
-                                    related_name='blog_posts', to=settings.AUTH_USER_MODEL),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='blog_posts', to=settings.AUTH_USER_MODEL),
         ),
         migrations.AddField(
             model_name='post',
             name='category',
-            field=models.ForeignKey(
-                on_delete=django.db.models.deletion.PROTECT, related_name='cats', to='blog.category'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='cats', to='blog.category'),
         ),
         migrations.AddField(
             model_name='like',
             name='post',
-            field=models.ForeignKey(
-                on_delete=django.db.models.deletion.CASCADE, to='blog.post'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='blog.post'),
         ),
         migrations.AddField(
             model_name='like',
             name='user',
-            field=models.ForeignKey(
-                on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL),
         ),
         migrations.AddField(
             model_name='comment',
             name='post',
-            field=models.ForeignKey(
-                on_delete=django.db.models.deletion.CASCADE, to='blog.post'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='blog.post'),
         ),
         migrations.AddField(
             model_name='comment',
             name='user',
-            field=models.ForeignKey(
-                on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL),
         ),
     ]
