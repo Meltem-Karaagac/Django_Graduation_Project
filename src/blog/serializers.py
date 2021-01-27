@@ -9,6 +9,12 @@ class CategorySerializer(serializers.ModelSerializer):
         fields = ('name', 'id')
 
 
+class CommentCreateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Comment
+        fields = ("content",)
+
+
 class CommentSerializer(serializers.ModelSerializer):
     user = serializers.CharField(source="user.username", read_only=True)
 
